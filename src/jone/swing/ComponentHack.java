@@ -69,15 +69,16 @@ public class ComponentHack {
      */
     public void update(double proportion) {
         Container container = _component.getParent();
-        double sizeX = container.getWidth();
-        double sizeY = container.getHeight();
-        if (container.getWidth() < container.getHeight() * proportion) {
-            sizeY = sizeX / proportion;
-        } else {
-            sizeX = sizeY * proportion;
-
+        if (container != null) {
+            double sizeX = container.getWidth();
+            double sizeY = container.getHeight();
+            if (container.getWidth() < container.getHeight() * proportion) {
+                sizeY = sizeX / proportion;
+            } else {
+                sizeX = sizeY * proportion;
+            }
+            _component.setBounds((int) (sizeX * _x / 100), (int) (sizeY * _y / 100), (int) (sizeX * _width / 100), (int) (sizeY * _height / 100));
         }
-        _component.setBounds((int) (sizeX * _x / 100), (int) (sizeY * _y / 100), (int) (sizeX * _width / 100), (int) (sizeY * _height / 100));
     }//end of the method update
 
     /**
