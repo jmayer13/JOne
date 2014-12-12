@@ -21,6 +21,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 
 /**
  * Frame that manages componets based on proportion, having a all-screen size
@@ -60,6 +61,8 @@ public class JProportionFrame extends JBaseFrame {
                 adapt(e);
             }
         });
+        //solve problem with unloading of internal components
+        setExtendedState(getExtendedState() | JFrame.ICONIFIED);
     }//end of the method initiateInternal
 
     /**
