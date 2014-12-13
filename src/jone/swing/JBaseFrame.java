@@ -103,7 +103,6 @@ public class JBaseFrame extends JFrame {
     private void initiateInternal() {
         components = new ArrayList();
         setLayout(null);
-        setVisible(true);
         internalScrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         internalScrollPane.setBounds(0, 0, _widthFrame, _heightFrame);
         this.getRootPane().setContentPane(internalScrollPane);
@@ -112,6 +111,8 @@ public class JBaseFrame extends JFrame {
         internalPanel.setLayout(null);
         internalPanel.setBackground(Color.WHITE);
         internalScrollPane.setViewportView(internalPanel);
+
+        setVisible(true);
     }//end of the method initiateInternal
 
     public void setScreenSizemode(ScreenSizeMode screenSizeMode) {

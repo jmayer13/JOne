@@ -63,6 +63,8 @@ public class JProportionFrame extends JBaseFrame {
         });
         //solve problem with unloading of internal components
         setExtendedState(getExtendedState() | JFrame.ICONIFIED);
+        //the set visible must be the last thing called
+        setVisible(true);
     }//end of the method initiateInternal
 
     /**
