@@ -93,8 +93,8 @@ public class JFormFrame extends JFrame {
         internalPanel.setLayout(null);
         containerPanel.setBounds(8, 0, _widthPanel, _heightPanel);
         internalScrollPane.setBounds(0, 0, _widthPanel, _heightPanel);
-        internalPanel.setBounds(0, 0, _widthPanel - 20, _heightPanel);
-        internalPanel.setPreferredSize(new Dimension(_widthPanel - 20, _heightPanel));
+        internalPanel.setBounds(0, 0, _widthPanel - 30, _heightPanel);
+        internalPanel.setPreferredSize(new Dimension(_widthPanel - 30, _heightPanel));
         oKButton.setBounds(_widthPanel - 250, _heightFrame - 100, 100, 35);
         cancelButton.setBounds(_widthPanel - 120, _heightFrame - 100, 100, 35);
 
@@ -154,6 +154,8 @@ public class JFormFrame extends JFrame {
      */
     public void addToInternalPanel(Component component) {
         internalPanel.add(component);
+        internalPanel.setVisible(true);
+        repaint();
     }//end of the method addToInternalPanel
 
     /**
@@ -194,7 +196,7 @@ public class JFormFrame extends JFrame {
 
     //main
     public static void main(String args[]) {
-        JFormFrame f = new JFormFrame(new Point(0, 0), 500);
+        JFormFrame f = new JFormFrame(new Point(0, 0), 400);
         f.setInternalSize(100, 800);
     }//end main
 }//end of the class JFormFrame 
