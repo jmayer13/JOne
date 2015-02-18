@@ -21,7 +21,6 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
 
 /**
  * Frame that manages componets based on proportion, having a all-screen size
@@ -61,9 +60,12 @@ public class JProportionFrame extends JBaseFrame {
                 adapt(e);
             }
         });
+
         //solve problem with unloading of internal components
-        setExtendedState(getExtendedState() | JFrame.ICONIFIED);
-        //the set visible must be the last thing called
+        setExtendedState(ICONIFIED | MAXIMIZED_BOTH);
+        //the set visible must be the last thing called 
+        pack();
+        setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);
     }//end of the method initiateInternal
 
@@ -109,6 +111,16 @@ public class JProportionFrame extends JBaseFrame {
     public ComponentHack add(ComponentHack componentHack) {
         componentHacks.add(componentHack);
         internalPanel.add(componentHack.getComponent());
+        //solve problem with unloading of internal components
+        setExtendedState(ICONIFIED | MAXIMIZED_BOTH);
+        //the set visible must be the last thing called 
+        pack();
+        setExtendedState(MAXIMIZED_BOTH);
+        setVisible(true);
         return componentHack;
     }//end of the method ComponentHack
+
+    public static void main(String args[]) {
+        new JProportionFrame(1);
+    }
 }//end of the class JProportionFrame 
